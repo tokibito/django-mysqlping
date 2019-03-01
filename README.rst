@@ -10,6 +10,27 @@ This middleware ping to MySQL server before the request and auto reconnect to th
 
 It supports PyMySQL(using MySQLdb mode) and mysqlclient in the database backend of Django(django.db.backends.mysql).
 
+Usage
+=====
+
+1. Add to settings.INSTALLED_APPS
+
+::
+
+   INSTALLED_APPS = [
+       ...
+       'mysqlping',
+   ]
+
+2. Add to settings.MIDDLEWARE (For example, you want to ping before every processes, therefore insert the middleware to first.)
+
+::
+
+   MIDDLEWARE = [
+       'mysqlping.middleware.MySQLPingMiddleware',
+       ...
+   ]
+
 License
 =======
 
