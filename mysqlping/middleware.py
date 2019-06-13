@@ -13,7 +13,8 @@ class MySQLPingMiddleware:
             connection = connections[db_name]
             if isinstance(connection, DatabaseWrapper):
                 if connection.connection:
-                    # Use ping method (PyMySQL or mysqlclient)
-                    connection.connection.ping(True)
+                    if not connection.is_usable():
+                        connection.connection = None
+                        connection.ensure_connection()
         response = self.get_response(request)
         return response

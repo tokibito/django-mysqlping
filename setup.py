@@ -15,7 +15,7 @@ def read(filename):
 
 setup(
     name='django-mysqlping',
-    version='0.1.0',
+    version='0.1.1',
     description="Ping to MySQL in Django middleware.",
     long_description=read('README.rst'),
     packages=find_packages(),
